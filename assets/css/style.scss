@@ -1,0 +1,463 @@
+@import 'variables.scss';
+
+@mixin for-phone-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-only {
+    @media screen and (min-width:600px) and (max-width:1024px) {
+        @content;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    padding-top: 30px;
+}
+
+.home-content,
+.about-sec,
+.our-services,
+.contact-sec,
+.smart-city-sec {
+    padding: 0 2rem;
+}
+
+.about-us-top-head {
+    color: gray;
+
+    @include for-phone-only() {
+        padding-top: 20px;
+    }
+}
+
+.h1-bold {
+    font-weight: bold;
+}
+
+/*  
+*   Top Info Bar
+*/
+
+.top-bar {
+    padding: .5em;
+    background-color: $top-bar-bg;
+    color: white;
+
+    a {
+        color: inherit;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .personal-info {
+        font-size: small;
+        font-weight: 500;
+        margin-left: 5rem;
+
+        span {
+            padding: 0 .5em;
+        }
+    }
+
+    .fab {
+        font-size: 1.2rem;
+    }
+
+    .top-social-media i {
+        padding: 0 .25em;
+    }
+
+    .top-social-media a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .top-social-media a:hover {
+        color: $top-bar-bg-dark;
+    }
+
+    @include for-phone-only() {
+        .personal-info {
+            margin-left: 0;
+
+            span:nth-of-type(2) {
+                display: none;
+            }
+
+            span:nth-of-type(3) {
+                white-space: nowrap;
+            }
+        }
+
+        .top-social-media {
+            margin-right: 0 !important;
+        }
+    }
+}
+
+/*
+*   Navbar
+*/
+.navbar {
+    .navbar-brand {
+        margin-left: 5rem;
+    }
+
+    .navbar-brand img {
+        width: 150px;
+    }
+
+    .nav-item {
+        margin: 0 5px;
+    }
+
+    .nav-item:hover {
+        background-color: $nav-hover-clr;
+    }
+
+    @include for-phone-only() {
+        .navbar-brand {
+            margin-left: 0;
+        }
+    }
+}
+
+/*
+*   Home Page
+*/
+.home-content {
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .h1-bold::after {
+        content: '';
+        width: 225px;
+        height: 3px;
+        position: absolute;
+        display: block;
+        top: 100px;
+        background-color: $top-bar-bg;
+    }
+
+    .cta-btn {
+        border-color: $top-bar-bg;
+        color: $top-bar-bg;
+        font-weight: bold;
+    }
+
+    .cta-btn:hover {
+        background-color: $top-bar-bg;
+        color: white;
+    }
+
+    .cta-btn:active {
+        background-color: $top-bar-bg-dark !important;
+    }
+
+    @include for-phone-only() {
+        .h1-bold::after {
+            display: none;
+        }
+
+        .cta-btn {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.feature-sec {
+    background-color: $light-gray;
+
+    .features {
+        .card {
+            height: 250px;
+            padding: .5em;
+
+            @include for-phone-only() {
+                margin: 1rem 0;
+            }
+        }
+
+        .card-img-top {
+            width: 80px;
+        }
+
+        .col {
+            justify-content: start;
+            align-items: center;
+        }
+    }
+
+}
+
+/* 
+*   About Us Start   
+*/
+.about-hero {
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("/assets/images/about-hero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+
+    h1 {
+        font-weight: bold;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+}
+
+.about-sec {
+    padding-top: 7em;
+}
+
+/* 
+*   Our Services Start   
+*/
+.services-card-block {
+    padding-top: 5rem;
+
+    .thumbnail {
+        width: 230px;
+        height: 230px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        padding: 1em;
+    }
+
+    span {
+        text-align: center;
+    }
+
+    .row {
+        padding: 1rem 0;
+        margin: 0 auto;
+    }
+
+    @include for-phone-only() {
+        .thumbnail {
+            margin: 10px auto;
+        }
+
+        .row {
+            padding: 0;
+        }
+    }
+}
+
+/* 
+*   Contact Us Start   
+*/
+.contact-sec {
+    background-image: url("/assets/images/contact-hero.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 650px;
+    color: black;
+
+    .btn {
+        background-color: $top-bar-bg;
+        border-color: $top-bar-bg;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    .btn:active {
+        background-color: $top-bar-bg-dark !important;
+    }
+
+    @include for-phone-only() {
+        background-image: none;
+    }
+
+    @include for-tablet-only() {
+        background-image: none;
+    }
+
+    .contact-info {
+        padding: 5em 0 0 0;
+
+        .contact-text {
+            max-width: 50%;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding: 1em;
+            background-color: #f5f8fa;
+            text-align: center;
+            height: 250px;
+        }
+
+        .fas {
+            font-size: 2rem;
+            padding: 1em;
+            color: #99abb6;
+        }
+
+        @include for-phone-only() {
+            .contact-text {
+                max-width: 100%;
+                margin: 0;
+                padding: 1em;
+            }
+
+            .contact-card {
+                margin: 10px 0;
+            }
+        }
+
+        @include for-tablet-only() {
+            .contact-text {
+                max-width: 100%;
+                margin: 0;
+                padding: 1em;
+            }
+
+            .contact-card {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .gmap {
+        @include for-phone-only() {
+            margin-top: 20px;
+            height: 250px;
+        }
+    }
+}
+
+/*
+*   Smart City Project Start
+*/
+.smart-city-sec {
+
+    p,
+    li {
+        text-align: justify;
+
+        @include for-phone-only() {
+            text-align: left;
+        }
+    }
+
+    lottie-player {
+        width: 100%;
+        height: 100%;
+        padding: 25px;
+    }
+
+    .o-1 {
+        @include for-phone-only() {
+            order: 1;
+        }
+    }
+
+    .o-2 {
+        @include for-phone-only() {
+            order: 2;
+        }
+    }
+
+    .gear-pointer {
+        background-image: url("/assets/images/bullet.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 25px;
+        height: 25px;
+    }
+
+    @include for-phone-only() {
+        .row {
+            margin: 0;
+        }
+    }
+}
+
+/*
+*   Footer Start
+*/
+footer {
+    background-color: $light-gray;
+    margin-top: 3rem;
+
+    .container {
+        padding: 2em 2em 0 2em;
+    }
+
+    .col-lg {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        @include for-phone-only() {
+            margin: 1em 0;
+        }
+
+        @include for-tablet-only() {
+            margin: 1em 0;
+        }
+    }
+
+    .footer-logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .fab {
+        font-size: larger;
+        margin: 0 5px 0 0;
+    }
+
+    .f-nav-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .copyright {
+        background: $top-bar-bg;
+        width: 100%;
+        margin: 0;
+    }
+}
